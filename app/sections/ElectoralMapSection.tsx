@@ -2,7 +2,7 @@
 
 import React, { useState, useMemo } from 'react'
 import { STATES, StateData } from '@/app/data/stateData'
-import { FiX, FiMapPin, FiUser, FiShield, FiCalendar, FiTrendingUp } from 'react-icons/fi'
+import { X, MapPin, User, Shield, Calendar, TrendingUp } from 'lucide-react'
 
 const LEAN_COLORS = {
   D: { bg: 'bg-blue-500', text: 'text-blue-600 dark:text-blue-400', light: 'bg-blue-500/15', border: 'border-blue-500/30' },
@@ -46,13 +46,13 @@ function StateDetail({ state, onClose }: { state: StateData; onClose: () => void
           <p className="text-sm text-muted-foreground">{state.electoralVotes} Electoral Votes</p>
         </div>
         <button onClick={onClose} className="p-1.5 rounded-lg hover:bg-muted/50 transition-colors" aria-label="Close">
-          <FiX className="h-4 w-4" />
+          <X className="h-4 w-4" />
         </button>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
         <div className="flex items-start gap-3 p-3 rounded-xl bg-muted/30">
-          <FiUser className="h-4 w-4 text-primary mt-0.5 shrink-0" />
+          <User className="h-4 w-4 text-primary mt-0.5 shrink-0" />
           <div>
             <p className="text-xs text-muted-foreground">Governor</p>
             <p className="text-sm font-medium text-foreground">{state.governor}</p>
@@ -63,7 +63,7 @@ function StateDetail({ state, onClose }: { state: StateData; onClose: () => void
         </div>
 
         <div className="flex items-start gap-3 p-3 rounded-xl bg-muted/30">
-          <FiShield className="h-4 w-4 text-primary mt-0.5 shrink-0" />
+          <Shield className="h-4 w-4 text-primary mt-0.5 shrink-0" />
           <div>
             <p className="text-xs text-muted-foreground">Voter ID</p>
             <p className="text-sm font-medium text-foreground">{state.votingLaws.idRequired}</p>
@@ -71,7 +71,7 @@ function StateDetail({ state, onClose }: { state: StateData; onClose: () => void
         </div>
 
         <div className="flex items-start gap-3 p-3 rounded-xl bg-muted/30">
-          <FiCalendar className="h-4 w-4 text-primary mt-0.5 shrink-0" />
+          <Calendar className="h-4 w-4 text-primary mt-0.5 shrink-0" />
           <div>
             <p className="text-xs text-muted-foreground">Early Voting</p>
             <p className="text-sm font-medium text-foreground">{state.votingLaws.earlyVoting}</p>
@@ -79,7 +79,7 @@ function StateDetail({ state, onClose }: { state: StateData; onClose: () => void
         </div>
 
         <div className="flex items-start gap-3 p-3 rounded-xl bg-muted/30">
-          <FiMapPin className="h-4 w-4 text-primary mt-0.5 shrink-0" />
+          <MapPin className="h-4 w-4 text-primary mt-0.5 shrink-0" />
           <div>
             <p className="text-xs text-muted-foreground">Registration Deadline</p>
             <p className="text-sm font-medium text-foreground">{state.votingLaws.registrationDeadline}</p>
@@ -90,7 +90,7 @@ function StateDetail({ state, onClose }: { state: StateData; onClose: () => void
       {/* Voting history */}
       <div className="mt-4 p-3 rounded-xl bg-muted/30">
         <div className="flex items-center gap-2 mb-2">
-          <FiTrendingUp className="h-4 w-4 text-primary" />
+          <TrendingUp className="h-4 w-4 text-primary" />
           <p className="text-xs text-muted-foreground font-medium">Recent Presidential Voting History</p>
         </div>
         <div className="flex gap-2">

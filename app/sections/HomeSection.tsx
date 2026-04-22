@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useEffect, useRef } from 'react'
-import { FiArrowRight, FiStar, FiMapPin, FiUsers, FiFlag, FiCheckCircle, FiZap } from 'react-icons/fi'
+import { ArrowRight, Star, MapPin, Users, Flag, CheckCircle, Zap } from 'lucide-react'
 
 interface HomeSectionProps {
   onNavigateToChat: () => void
@@ -10,10 +10,10 @@ interface HomeSectionProps {
 }
 
 const STATS = [
-  { label: 'States', value: 50, icon: FiMapPin, desc: 'Participating states & DC', suffix: '+DC' },
-  { label: 'Electoral Votes', value: 538, icon: FiStar, desc: 'Total electoral college votes', suffix: '' },
-  { label: 'House Seats', value: 435, icon: FiUsers, desc: 'Congressional representatives', suffix: '' },
-  { label: 'Senators', value: 100, icon: FiFlag, desc: 'U.S. Senate members', suffix: '' },
+  { label: 'States', value: 50, icon: MapPin, desc: 'Participating states & DC', suffix: '+DC' },
+  { label: 'Electoral Votes', value: 538, icon: Star, desc: 'Total electoral college votes', suffix: '' },
+  { label: 'House Seats', value: 435, icon: Users, desc: 'Congressional representatives', suffix: '' },
+  { label: 'Senators', value: 100, icon: Flag, desc: 'U.S. Senate members', suffix: '' },
 ]
 
 const FACTS = [
@@ -115,7 +115,7 @@ export default function HomeSection({ onNavigateToChat, onNavigateToMap, onNavig
         <ParticleBackground />
         <div className="relative z-10 text-center space-y-6 py-16 md:py-24 px-6">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/20 backdrop-blur-md text-white text-sm font-medium">
-            <FiCheckCircle className="h-4 w-4" />
+            <CheckCircle className="h-4 w-4" />
             Your Civic Education Hub
           </div>
           <h1 className="text-4xl md:text-6xl font-bold text-white tracking-tight leading-tight">
@@ -134,20 +134,20 @@ export default function HomeSection({ onNavigateToChat, onNavigateToMap, onNavig
               className="group inline-flex items-center gap-2 px-6 py-3 bg-white text-primary font-semibold rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-white/20"
             >
               Ask the Assistant
-              <FiArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </button>
             <button
               onClick={onNavigateToMap}
               className="inline-flex items-center gap-2 px-6 py-3 bg-white/15 backdrop-blur-md text-white font-semibold rounded-xl border border-white/20 transition-all duration-300 hover:bg-white/25"
             >
-              <FiMapPin className="h-4 w-4" />
+              <MapPin className="h-4 w-4" />
               Explore the Map
             </button>
             <button
               onClick={onNavigateToQuiz}
               className="inline-flex items-center gap-2 px-6 py-3 bg-white/15 backdrop-blur-md text-white font-semibold rounded-xl border border-white/20 transition-all duration-300 hover:bg-white/25"
             >
-              <FiZap className="h-4 w-4" />
+              <Zap className="h-4 w-4" />
               Take the Quiz
             </button>
           </div>
@@ -177,7 +177,7 @@ export default function HomeSection({ onNavigateToChat, onNavigateToMap, onNavig
         <div className="glass rounded-2xl p-6 md:p-8 overflow-hidden">
           <div className="flex items-center gap-2 mb-4">
             <div className="w-8 h-8 rounded-lg bg-amber-500/10 flex items-center justify-center">
-              <FiStar className="h-4 w-4 text-amber-500" />
+              <Star className="h-4 w-4 text-amber-500" />
             </div>
             <h3 className="text-lg font-semibold text-foreground">Did You Know?</h3>
           </div>

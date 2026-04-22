@@ -2,10 +2,10 @@
 
 import React, { useState, useRef, useEffect, useMemo } from 'react'
 import {
-  FiClipboard, FiCheckSquare, FiFlag, FiTrendingUp,
-  FiCalendar, FiBarChart2, FiAward, FiStar,
-  FiZoomIn, FiZoomOut, FiMapPin,
-} from 'react-icons/fi'
+  Clipboard, CheckSquare, Flag, TrendingUp,
+  Calendar, BarChart3, Award, Star,
+  ZoomIn, ZoomOut, MapPin,
+} from 'lucide-react'
 
 interface TimelineNode {
   icon: React.ComponentType<{ className?: string }>
@@ -25,14 +25,14 @@ const COLOR_MAP = {
 }
 
 const TIMELINE: TimelineNode[] = [
-  { icon: FiClipboard, phase: 'Voter Registration', date: 'Ongoing (Deadlines vary)', summary: 'Citizens register to vote through state or local election offices.', detail: 'Registration deadlines vary by state, typically 15-30 days before the election. Many states offer online registration. Some states have automatic voter registration.', color: 'blue', months: 'Year-round' },
-  { icon: FiCheckSquare, phase: 'Primary Elections', date: 'Feb - June', summary: 'Parties select their presidential nominees through state primaries.', detail: 'The Iowa caucuses and New Hampshire primary traditionally kick off the season. "Super Tuesday" sees multiple states vote simultaneously.', color: 'yellow', months: 'Feb-Jun' },
-  { icon: FiFlag, phase: 'National Conventions', date: 'July - August', summary: 'Parties formally nominate their candidates and adopt platforms.', detail: 'Delegates officially vote for their party\'s nominee. The vice-presidential pick is announced. The party platform is finalized.', color: 'yellow', months: 'Jul-Aug' },
-  { icon: FiTrendingUp, phase: 'General Campaign', date: 'Sep - November', summary: 'Candidates campaign nationally with debates, rallies, and ads.', detail: 'Presidential debates are typically held in September and October. Candidates focus on swing states. Campaign spending reaches its peak.', color: 'yellow', months: 'Sep-Nov' },
-  { icon: FiCalendar, phase: 'Election Day', date: 'First Tue after first Mon in Nov', summary: 'Voters across the nation cast their ballots.', detail: 'Polling places are open from early morning to evening. Many voters cast ballots through early voting or mail-in options.', color: 'red', months: 'November' },
-  { icon: FiBarChart2, phase: 'Vote Counting', date: 'November - December', summary: 'Ballots are counted and states certify results.', detail: 'Results may take days or weeks to finalize. States must certify results by the "safe harbor" deadline. Recounts may occur if margins are close.', color: 'red', months: 'Nov-Dec' },
-  { icon: FiAward, phase: 'Electoral College', date: 'Mid-December', summary: 'Electors meet in state capitals to formally cast votes.', detail: 'The 538 electors cast their votes. A candidate needs 270 electoral votes to win. Congress counts and certifies the votes in January.', color: 'green', months: 'December' },
-  { icon: FiStar, phase: 'Inauguration', date: 'January 20th', summary: 'The new or returning President is sworn into office.', detail: 'The ceremony takes place at the U.S. Capitol. The Chief Justice administers the oath. The new President delivers an inaugural address.', color: 'green', months: 'January' },
+  { icon: Clipboard, phase: 'Voter Registration', date: 'Ongoing (Deadlines vary)', summary: 'Citizens register to vote through state or local election offices.', detail: 'Registration deadlines vary by state, typically 15-30 days before the election. Many states offer online registration. Some states have automatic voter registration.', color: 'blue', months: 'Year-round' },
+  { icon: CheckSquare, phase: 'Primary Elections', date: 'Feb - June', summary: 'Parties select their presidential nominees through state primaries.', detail: 'The Iowa caucuses and New Hampshire primary traditionally kick off the season. "Super Tuesday" sees multiple states vote simultaneously.', color: 'yellow', months: 'Feb-Jun' },
+  { icon: Flag, phase: 'National Conventions', date: 'July - August', summary: 'Parties formally nominate their candidates and adopt platforms.', detail: 'Delegates officially vote for their party\'s nominee. The vice-presidential pick is announced. The party platform is finalized.', color: 'yellow', months: 'Jul-Aug' },
+  { icon: TrendingUp, phase: 'General Campaign', date: 'Sep - November', summary: 'Candidates campaign nationally with debates, rallies, and ads.', detail: 'Presidential debates are typically held in September and October. Candidates focus on swing states. Campaign spending reaches its peak.', color: 'yellow', months: 'Sep-Nov' },
+  { icon: Calendar, phase: 'Election Day', date: 'First Tue after first Mon in Nov', summary: 'Voters across the nation cast their ballots.', detail: 'Polling places are open from early morning to evening. Many voters cast ballots through early voting or mail-in options.', color: 'red', months: 'November' },
+  { icon: BarChart3, phase: 'Vote Counting', date: 'November - December', summary: 'Ballots are counted and states certify results.', detail: 'Results may take days or weeks to finalize. States must certify results by the "safe harbor" deadline. Recounts may occur if margins are close.', color: 'red', months: 'Nov-Dec' },
+  { icon: Award, phase: 'Electoral College', date: 'Mid-December', summary: 'Electors meet in state capitals to formally cast votes.', detail: 'The 538 electors cast their votes. A candidate needs 270 electoral votes to win. Congress counts and certifies the votes in January.', color: 'green', months: 'December' },
+  { icon: Star, phase: 'Inauguration', date: 'January 20th', summary: 'The new or returning President is sworn into office.', detail: 'The ceremony takes place at the U.S. Capitol. The Chief Justice administers the oath. The new President delivers an inaugural address.', color: 'green', months: 'January' },
 ]
 
 // Determine current phase based on current month
@@ -93,7 +93,7 @@ export default function TimelineSection() {
           className="p-1.5 rounded-lg border border-border/60 hover:bg-muted/50 transition-colors"
           aria-label="Zoom out"
         >
-          <FiZoomOut className="h-4 w-4 text-muted-foreground" />
+          <ZoomOut className="h-4 w-4 text-muted-foreground" />
         </button>
         <span className="text-xs text-muted-foreground w-12 text-center">{Math.round(zoom * 100)}%</span>
         <button
@@ -101,7 +101,7 @@ export default function TimelineSection() {
           className="p-1.5 rounded-lg border border-border/60 hover:bg-muted/50 transition-colors"
           aria-label="Zoom in"
         >
-          <FiZoomIn className="h-4 w-4 text-muted-foreground" />
+          <ZoomIn className="h-4 w-4 text-muted-foreground" />
         </button>
       </div>
 
@@ -129,7 +129,7 @@ export default function TimelineSection() {
                   {/* "You are here" indicator */}
                   {isCurrent && (
                     <div className="absolute -top-6 left-1/2 -translate-x-1/2 flex items-center gap-1 px-2 py-0.5 rounded-full bg-accent/10 border border-accent/30">
-                      <FiMapPin className="h-2.5 w-2.5 text-accent" />
+                      <MapPin className="h-2.5 w-2.5 text-accent" />
                       <span className="text-[9px] font-medium text-accent whitespace-nowrap">You are here</span>
                     </div>
                   )}

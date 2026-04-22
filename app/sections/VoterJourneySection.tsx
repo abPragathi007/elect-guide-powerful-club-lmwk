@@ -4,9 +4,9 @@ import React, { useState, useEffect, useCallback } from 'react'
 import { STATES } from '@/app/data/stateData'
 import { VOTER_JOURNEY_STEPS } from '@/app/data/stateData'
 import {
-  FiCheckCircle, FiCircle, FiExternalLink, FiChevronDown,
-  FiBell, FiAward, FiMapPin,
-} from 'react-icons/fi'
+  CheckCircle, Circle, ExternalLink, ChevronDown,
+  Bell, Award, MapPin,
+} from 'lucide-react'
 
 const MOTIVATIONAL_MESSAGES = [
   { threshold: 0, message: 'Start your voter journey today!' },
@@ -86,7 +86,7 @@ export default function VoterJourneySection() {
         <div className="glass rounded-2xl p-5">
           <div className="flex items-center gap-3 mb-3">
             <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center">
-              <FiMapPin className="h-4 w-4 text-primary" />
+              <MapPin className="h-4 w-4 text-primary" />
             </div>
             <div>
               <h3 className="text-sm font-semibold text-foreground">Select Your State</h3>
@@ -102,7 +102,7 @@ export default function VoterJourneySection() {
               <span className={selectedState ? 'text-foreground' : 'text-muted-foreground'}>
                 {selectedStateData ? `${selectedStateData.name} (${selectedStateData.abbr})` : 'Choose your state...'}
               </span>
-              <FiChevronDown className={`h-4 w-4 text-muted-foreground transition-transform ${showDropdown ? 'rotate-180' : ''}`} />
+              <ChevronDown className={`h-4 w-4 text-muted-foreground transition-transform ${showDropdown ? 'rotate-180' : ''}`} />
             </button>
 
             {showDropdown && (
@@ -154,7 +154,7 @@ export default function VoterJourneySection() {
             />
           </div>
           <p className="text-xs text-muted-foreground flex items-center gap-1.5">
-            {progressPct === 100 && <FiAward className="h-3.5 w-3.5 text-accent" />}
+            {progressPct === 100 && <Award className="h-3.5 w-3.5 text-accent" />}
             {getMessage(progressPct)}
           </p>
         </div>
@@ -180,9 +180,9 @@ export default function VoterJourneySection() {
                     aria-label={isCompleted ? `Mark ${step.title} incomplete` : `Mark ${step.title} complete`}
                   >
                     {isCompleted ? (
-                      <FiCheckCircle className="h-5 w-5 text-accent" />
+                      <CheckCircle className="h-5 w-5 text-accent" />
                     ) : (
-                      <FiCircle className="h-5 w-5 text-muted-foreground hover:text-primary transition-colors" />
+                      <Circle className="h-5 w-5 text-muted-foreground hover:text-primary transition-colors" />
                     )}
                   </button>
                   <div className="flex-1">
@@ -199,7 +199,7 @@ export default function VoterJourneySection() {
                           className="inline-flex items-center gap-1 text-xs text-primary hover:underline font-medium"
                         >
                           {step.linkText}
-                          <FiExternalLink className="h-3 w-3" />
+                          <ExternalLink className="h-3 w-3" />
                         </a>
                       )}
                       {isReminder && !reminderSet && (
@@ -207,13 +207,13 @@ export default function VoterJourneySection() {
                           onClick={handleSetReminder}
                           className="inline-flex items-center gap-1 text-xs text-primary hover:underline font-medium"
                         >
-                          <FiBell className="h-3 w-3" />
+                          <Bell className="h-3 w-3" />
                           Set Reminder
                         </button>
                       )}
                       {isReminder && reminderSet && (
                         <span className="text-xs text-accent font-medium flex items-center gap-1">
-                          <FiBell className="h-3 w-3" />
+                          <Bell className="h-3 w-3" />
                           Reminder set
                         </span>
                       )}

@@ -2,7 +2,7 @@
 
 import React, { useState, useMemo, useCallback } from 'react'
 import { GLOSSARY_TERMS, GLOSSARY_CATEGORIES, GlossaryTerm } from '@/app/data/glossaryData'
-import { FiSearch, FiBook, FiMessageSquare, FiChevronDown, FiHash } from 'react-icons/fi'
+import { Search, BookOpen, MessageSquare, ChevronDown, Hash } from 'lucide-react'
 
 type CategoryKey = keyof typeof GLOSSARY_CATEGORIES | 'all'
 
@@ -68,7 +68,7 @@ export default function GlossarySection({ onAskAssistant }: { onAskAssistant?: (
 
       {/* Search */}
       <div className="max-w-md mx-auto relative">
-        <FiSearch className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+        <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
         <input
           value={search}
           onChange={e => setSearch(e.target.value)}
@@ -126,7 +126,7 @@ export default function GlossarySection({ onAskAssistant }: { onAskAssistant?: (
           <div key={letter}>
             <div id={`glossary-${letter}`} className="sticky top-14 z-10 py-1">
               <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-primary/10 text-primary text-xs font-bold">
-                <FiHash className="h-3 w-3" />
+                <Hash className="h-3 w-3" />
                 {letter}
               </span>
             </div>
@@ -141,7 +141,7 @@ export default function GlossarySection({ onAskAssistant }: { onAskAssistant?: (
                       className="w-full text-left p-4 flex items-start gap-3"
                     >
                       <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 ${isExpanded ? 'bg-primary/15' : 'bg-muted/50'}`}>
-                        <FiBook className={`h-4 w-4 ${isExpanded ? 'text-primary' : 'text-muted-foreground'}`} />
+                        <BookOpen className={`h-4 w-4 ${isExpanded ? 'text-primary' : 'text-muted-foreground'}`} />
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-2 flex-wrap">
@@ -153,7 +153,7 @@ export default function GlossarySection({ onAskAssistant }: { onAskAssistant?: (
                         </div>
                         <p className="text-sm text-muted-foreground mt-1 leading-relaxed">{term.definition}</p>
                       </div>
-                      <FiChevronDown className={`h-4 w-4 text-muted-foreground shrink-0 mt-1 transition-transform ${isExpanded ? 'rotate-180' : ''}`} />
+                      <ChevronDown className={`h-4 w-4 text-muted-foreground shrink-0 mt-1 transition-transform ${isExpanded ? 'rotate-180' : ''}`} />
                     </button>
 
                     {isExpanded && (
@@ -186,7 +186,7 @@ export default function GlossarySection({ onAskAssistant }: { onAskAssistant?: (
                               onClick={(e) => { e.stopPropagation(); handleAsk(term.term) }}
                               className="inline-flex items-center gap-1.5 text-xs text-primary font-medium hover:underline"
                             >
-                              <FiMessageSquare className="h-3 w-3" />
+                              <MessageSquare className="h-3 w-3" />
                               Ask the assistant about this
                             </button>
                           </div>
@@ -203,7 +203,7 @@ export default function GlossarySection({ onAskAssistant }: { onAskAssistant?: (
 
       {filtered.length === 0 && (
         <div className="text-center py-12">
-          <FiSearch className="h-8 w-8 text-muted-foreground/30 mx-auto mb-3" />
+          <Search className="h-8 w-8 text-muted-foreground/30 mx-auto mb-3" />
           <p className="text-muted-foreground">No terms found matching &quot;{search}&quot;</p>
         </div>
       )}
