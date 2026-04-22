@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef, useMemo } from 'react'
 import { VOTER_TURNOUT, STATES } from '@/app/data/stateData'
-import { Clock, BarChart3, PieChart, Calendar, Search, ArrowUp, ArrowDown } from 'lucide-react'
+import { Clock, BarChart2, PieChart, Calendar, Search, ArrowUp, ArrowDown } from 'lucide-react'
 
 // Next major election date
 const NEXT_ELECTION = new Date('2026-11-03T00:00:00')
@@ -84,7 +84,7 @@ function TurnoutChart() {
     <div ref={ref} className="glass rounded-2xl p-6">
       <div className="flex items-center gap-2 mb-4">
         <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
-          <BarChart3 className="h-4 w-4 text-primary" />
+          <BarChart2 className="h-4 w-4 text-primary" />
         </div>
         <div>
           <h3 className="text-sm font-semibold text-foreground">Voter Turnout by Year</h3>

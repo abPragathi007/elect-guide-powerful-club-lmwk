@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import {
   Clipboard, CheckSquare, Flag, TrendingUp,
-  Calendar, BarChart3, Award, Star,
+  Calendar, BarChart2, Award, Star,
   ChevronDown, ChevronUp, ArrowRight,
 } from 'lucide-react'
 
@@ -21,7 +21,7 @@ const STEPS: Step[] = [
   { icon: Flag, title: 'National Conventions', description: 'Each party formally nominates its presidential and vice-presidential candidates.', details: 'Delegates from each state formally cast their votes for the party nominee. The conventions also finalize the party platform. The nominee delivers an acceptance speech, and the vice-presidential candidate is officially announced.', color: 'from-purple-500 to-purple-600' },
   { icon: TrendingUp, title: 'Campaign Season', description: 'Candidates campaign across the country with debates and rallies.', details: 'Candidates travel to key battleground states, participate in televised debates, run advertising campaigns, and hold rallies. Campaign finance laws regulate donations and spending. Super PACs and political action committees also play significant roles.', color: 'from-pink-500 to-pink-600' },
   { icon: Calendar, title: 'Election Day', description: 'Voters cast ballots on the first Tuesday after the first Monday in November.', details: 'Polling places open early in the morning and close in the evening. Voters can cast ballots in person, by mail (absentee), or through early voting where available. Federal law prohibits voter intimidation.', color: 'from-red-500 to-red-600' },
-  { icon: BarChart3, title: 'Vote Counting', description: 'Ballots are counted and results are reported.', details: 'Votes are counted at the county level, with results reported to the state. Mail-in and provisional ballots may take additional time. States certify results after thorough canvassing. Recounts may occur if margins are very close.', color: 'from-orange-500 to-orange-600' },
+  { icon: BarChart2, title: 'Vote Counting', description: 'Ballots are counted and results are reported.', details: 'Votes are counted at the county level, with results reported to the state. Mail-in and provisional ballots may take additional time. States certify results after thorough canvassing. Recounts may occur if margins are very close.', color: 'from-orange-500 to-orange-600' },
   { icon: Award, title: 'Electoral College', description: 'Electors formally cast their votes based on state results.', details: 'The Electoral College consists of 538 electors. A candidate needs 270 electoral votes to win. Most states use a winner-take-all system. Electors meet in their state capitals in December to cast votes. Congress counts and certifies the votes in January.', color: 'from-amber-500 to-amber-600' },
   { icon: Star, title: 'Inauguration', description: 'The President-elect is sworn into office on January 20th.', details: 'The inauguration ceremony takes place on the steps of the U.S. Capitol. The President-elect takes the oath of office, administered by the Chief Justice of the Supreme Court, and delivers an inaugural address.', color: 'from-green-500 to-green-600' },
 ]

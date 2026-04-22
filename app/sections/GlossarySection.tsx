@@ -2,7 +2,7 @@
 
 import React, { useState, useMemo, useCallback } from 'react'
 import { GLOSSARY_TERMS, GLOSSARY_CATEGORIES, GlossaryTerm } from '@/app/data/glossaryData'
-import { Search, BookOpen, MessageSquare, ChevronDown, Hash } from 'lucide-react'
+import { Search, Book, MessageSquare, ChevronDown, Hash } from 'lucide-react'
 
 type CategoryKey = keyof typeof GLOSSARY_CATEGORIES | 'all'
 
@@ -141,7 +141,7 @@ export default function GlossarySection({ onAskAssistant }: { onAskAssistant?: (
                       className="w-full text-left p-4 flex items-start gap-3"
                     >
                       <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 ${isExpanded ? 'bg-primary/15' : 'bg-muted/50'}`}>
-                        <BookOpen className={`h-4 w-4 ${isExpanded ? 'text-primary' : 'text-muted-foreground'}`} />
+                        <Book className={`h-4 w-4 ${isExpanded ? 'text-primary' : 'text-muted-foreground'}`} />
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-2 flex-wrap">

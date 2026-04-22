@@ -3,7 +3,7 @@
 import React, { useState, useRef, useEffect, useMemo } from 'react'
 import {
   Clipboard, CheckSquare, Flag, TrendingUp,
-  Calendar, BarChart3, Award, Star,
+  Calendar, BarChart2, Award, Star,
   ZoomIn, ZoomOut, MapPin,
 } from 'lucide-react'
 
@@ -30,7 +30,7 @@ const TIMELINE: TimelineNode[] = [
   { icon: Flag, phase: 'National Conventions', date: 'July - August', summary: 'Parties formally nominate their candidates and adopt platforms.', detail: 'Delegates officially vote for their party\'s nominee. The vice-presidential pick is announced. The party platform is finalized.', color: 'yellow', months: 'Jul-Aug' },
   { icon: TrendingUp, phase: 'General Campaign', date: 'Sep - November', summary: 'Candidates campaign nationally with debates, rallies, and ads.', detail: 'Presidential debates are typically held in September and October. Candidates focus on swing states. Campaign spending reaches its peak.', color: 'yellow', months: 'Sep-Nov' },
   { icon: Calendar, phase: 'Election Day', date: 'First Tue after first Mon in Nov', summary: 'Voters across the nation cast their ballots.', detail: 'Polling places are open from early morning to evening. Many voters cast ballots through early voting or mail-in options.', color: 'red', months: 'November' },
-  { icon: BarChart3, phase: 'Vote Counting', date: 'November - December', summary: 'Ballots are counted and states certify results.', detail: 'Results may take days or weeks to finalize. States must certify results by the "safe harbor" deadline. Recounts may occur if margins are close.', color: 'red', months: 'Nov-Dec' },
+  { icon: BarChart2, phase: 'Vote Counting', date: 'November - December', summary: 'Ballots are counted and states certify results.', detail: 'Results may take days or weeks to finalize. States must certify results by the "safe harbor" deadline. Recounts may occur if margins are close.', color: 'red', months: 'Nov-Dec' },
   { icon: Award, phase: 'Electoral College', date: 'Mid-December', summary: 'Electors meet in state capitals to formally cast votes.', detail: 'The 538 electors cast their votes. A candidate needs 270 electoral votes to win. Congress counts and certifies the votes in January.', color: 'green', months: 'December' },
   { icon: Star, phase: 'Inauguration', date: 'January 20th', summary: 'The new or returning President is sworn into office.', detail: 'The ceremony takes place at the U.S. Capitol. The Chief Justice administers the oath. The new President delivers an inaugural address.', color: 'green', months: 'January' },
 ]

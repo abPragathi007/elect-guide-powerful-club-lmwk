@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useCallback } from 'react'
 import {
-  Home, Map, BarChart3, Zap, CheckSquare,
+  Home, Map, BarChart2, Zap, CheckSquare,
   MessageSquare, List, Clock, BookOpen,
   Menu, X, Moon, Sun, Cpu, Activity,
 } from 'lucide-react'
@@ -20,7 +20,7 @@ import GlossarySection from './sections/GlossarySection'
 const TABS = [
   { id: 'home', label: 'Home', icon: Home },
   { id: 'map', label: 'Map', icon: Map },
-  { id: 'dashboard', label: 'Dashboard', icon: BarChart3 },
+  { id: 'dashboard', label: 'Dashboard', icon: BarChart2 },
   { id: 'quiz', label: 'Quiz', icon: Zap },
   { id: 'journey', label: 'My Journey', icon: CheckSquare },
   { id: 'ask', label: 'Assistant', icon: MessageSquare },
