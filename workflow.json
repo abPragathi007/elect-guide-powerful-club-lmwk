@@ -1,0 +1,11 @@
+{
+  "nodes": [
+    {"id": "input_node", "type": "Input", "label": "User Question", "nodeCategory": "input"},
+    {"id": "election_education_agent", "type": "Agent", "label": "Election Education Agent", "nodeCategory": "agent"},
+    {"id": "output_node", "type": "Output", "label": "Education Response", "nodeCategory": "end"}
+  ],
+  "edges": [
+    {"source": "input_node", "target": "election_education_agent"},
+    {"source": "election_education_agent", "target": "output_node"}
+  ]
+}

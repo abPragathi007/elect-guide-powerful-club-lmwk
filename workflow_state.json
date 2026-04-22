@@ -1,0 +1,20 @@
+{
+  "agents": [
+    {
+      "agent_id": "69e904acb6acff9e335690e7",
+      "name": "Election Education Agent",
+      "role": "Civic Education Assistant",
+      "provider": "Anthropic",
+      "model": "claude-3-5-sonnet-latest",
+      "temperature": 0.5,
+      "top_p": 0.95,
+      "image_output_config": null,
+      "voice_config": null,
+      "file_output": false
+    }
+  ],
+  "workflow_type": "single_agent",
+  "response_schemas": {
+    "election_education_agent": "response_schemas/election_education_agent_response.json"
+  }
+}

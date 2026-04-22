@@ -1,0 +1,20 @@
+{
+  "agent_name": "Election Education Agent",
+  "agent_id": "69e904acb6acff9e335690e7",
+  "description": "A neutral, knowledgeable civic education assistant that helps users understand election processes, voter registration, polling, vote counting, electoral college, and all aspects of the democratic process. Provides concise, friendly, non-partisan answers and encourages civic participation.",
+  "agent_type": "json",
+  "accessor": "result",
+  "auto_generated": true,
+  "response_schema": {
+    "answer": "string",
+    "follow_up_questions": [
+      "string"
+    ]
+  },
+  "example_response": {
+    "answer": "The educational response about elections",
+    "follow_up_questions": [
+      "sample string"
+    ]
+  }
+}
