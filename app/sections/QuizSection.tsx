@@ -3,9 +3,10 @@
 import React, { useState, useEffect, useCallback, useMemo } from 'react'
 import { QUIZ_QUESTIONS, QuizQuestion } from '@/app/data/quizData'
 import {
-  FiAward, FiCheck, FiX, FiArrowRight,
-  FiRotateCcw, FiShare2, FiZap, FiTarget, FiStar,
-} from 'react-icons/fi'
+  Award, Check, X, ArrowRight,
+  RotateCcw, Share2, Zap, Target, Star,
+} from 'lucide-react'
+import { copyToClipboard } from '@/lib/clipboard'
 
 type Difficulty = 'beginner' | 'intermediate' | 'expert' | 'all'
 
@@ -127,24 +128,20 @@ export default function QuizSection() {
     }
   }, [finished, score, totalQuestions, difficulty])
 
-  const handleShare = () => {
+  const handleShare = async () => {
     const pct = Math.round((score / totalQuestions) * 100)
     const grade = getGrade(pct)
     const text = `I scored ${score}/${totalQuestions} (${pct}%, Grade ${grade.letter}) on the US Election Quiz! Test your civic knowledge too!`
-    if (navigator.share) {
-      navigator.share({ title: 'Election Quiz Results', text }).catch(() => {})
-    } else {
-      navigator.clipboard?.writeText(text)
-    }
+    await copyToClipboard(text)
   }
 
   // Difficulty selection screen
   if (!started) {
-    const difficulties: { key: Difficulty; label: string; icon: typeof FiZap; desc: string; count: number }[] = [
-      { key: 'beginner', label: 'Beginner', icon: FiZap, desc: 'Fundamentals', count: QUIZ_QUESTIONS.filter(q => q.difficulty === 'beginner').length },
-      { key: 'intermediate', label: 'Intermediate', icon: FiTarget, desc: 'Deeper knowledge', count: QUIZ_QUESTIONS.filter(q => q.difficulty === 'intermediate').length },
-      { key: 'expert', label: 'Expert', icon: FiStar, desc: 'Challenge yourself', count: QUIZ_QUESTIONS.filter(q => q.difficulty === 'expert').length },
-      { key: 'all', label: 'All Questions', icon: FiAward, desc: 'Complete quiz', count: QUIZ_QUESTIONS.length },
+    const difficulties: { key: Difficulty; label: string; icon: typeof Zap; desc: string; count: number }[] = [
+      { key: 'beginner', label: 'Beginner', icon: Zap, desc: 'Fundamentals', count: QUIZ_QUESTIONS.filter(q => q.difficulty === 'beginner').length },
+      { key: 'intermediate', label: 'Intermediate', icon: Target, desc: 'Deeper knowledge', count: QUIZ_QUESTIONS.filter(q => q.difficulty === 'intermediate').length },
+      { key: 'expert', label: 'Expert', icon: Star, desc: 'Challenge yourself', count: QUIZ_QUESTIONS.filter(q => q.difficulty === 'expert').length },
+      { key: 'all', label: 'All Questions', icon: Award, desc: 'Complete quiz', count: QUIZ_QUESTIONS.length },
     ]
 
     return (
@@ -226,14 +223,14 @@ export default function QuizSection() {
               onClick={restart}
               className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary text-primary-foreground rounded-xl font-medium text-sm hover:opacity-90 transition-opacity"
             >
-              <FiRotateCcw className="h-4 w-4" />
+              <RotateCcw className="h-4 w-4" />
               Try Again
             </button>
             <button
               onClick={handleShare}
               className="inline-flex items-center gap-2 px-5 py-2.5 border border-border/60 rounded-xl font-medium text-sm text-foreground hover:bg-muted/50 transition-colors"
             >
-              <FiShare2 className="h-4 w-4" />
+              <Share2 className="h-4 w-4" />
               Share Score
             </button>
           </div>
@@ -296,9 +293,9 @@ export default function QuizSection() {
                     'bg-muted text-muted-foreground'
                   }`}>
                     {selectedAnswer !== null && i === currentQuestion.correctIndex ? (
-                      <FiCheck className="h-3.5 w-3.5" />
+                      <Check className="h-3.5 w-3.5" />
                     ) : selectedAnswer === i && i !== currentQuestion.correctIndex ? (
-                      <FiX className="h-3.5 w-3.5" />
+                      <X className="h-3.5 w-3.5" />
                     ) : (
                       String.fromCharCode(65 + i)
                     )}
@@ -324,7 +321,7 @@ export default function QuizSection() {
             className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 bg-primary text-primary-foreground rounded-xl font-medium text-sm hover:opacity-90 transition-all animate-slide-up"
           >
             {currentIdx < totalQuestions - 1 ? 'Next Question' : 'See Results'}
-            <FiArrowRight className="h-4 w-4" />
+            <ArrowRight className="h-4 w-4" />
           </button>
         )}
       </div>

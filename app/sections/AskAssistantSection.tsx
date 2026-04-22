@@ -2,11 +2,12 @@
 
 import React, { useState, useRef, useEffect, useCallback } from 'react'
 import {
-  FiSend, FiUser, FiCpu, FiAlertCircle, FiCopy, FiCheck,
-  FiThumbsUp, FiThumbsDown, FiMic, FiMicOff, FiClock,
-  FiChevronDown,
-} from 'react-icons/fi'
+  Send, User, Cpu, AlertCircle, Copy, Check,
+  ThumbsUp, ThumbsDown, Mic, MicOff, Clock,
+  ChevronDown,
+} from 'lucide-react'
 import { callAIAgent } from '@/lib/aiAgent'
+import { copyToClipboard } from '@/lib/clipboard'
 
 const AGENT_ID = '69e904acb6acff9e335690e7'
 
@@ -64,7 +65,7 @@ function SkeletonMessage() {
   return (
     <div className="flex gap-3 justify-start">
       <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-        <FiCpu className="h-4 w-4 text-primary" />
+        <Cpu className="h-4 w-4 text-primary" />
       </div>
       <div className="max-w-[80%] space-y-2">
         <div className="rounded-2xl px-4 py-4 bg-muted/60 border border-border/40 space-y-2">
@@ -153,8 +154,8 @@ export default function AskAssistantSection() {
     }
   }, [loading])
 
-  const handleCopy = useCallback((msgId: string, content: string) => {
-    navigator.clipboard?.writeText(content).catch(() => {})
+  const handleCopy = useCallback(async (msgId: string, content: string) => {
+    await copyToClipboard(content)
     setMessages(prev => prev.map(m => m.id === msgId ? { ...m, copied: true } : m))
     setTimeout(() => {
       setMessages(prev => prev.map(m => m.id === msgId ? { ...m, copied: false } : m))
@@ -218,7 +219,7 @@ export default function AskAssistantSection() {
           {messages.length === 0 && !loading && (
             <div className="flex flex-col items-center justify-center h-full py-16 text-center space-y-3">
               <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center animate-pulse-ring">
-                <FiCpu className="h-7 w-7 text-primary" />
+                <Cpu className="h-7 w-7 text-primary" />
               </div>
               <h3 className="text-lg font-semibold text-foreground">Election Education Assistant</h3>
               <p className="text-sm text-muted-foreground max-w-sm">
@@ -231,7 +232,7 @@ export default function AskAssistantSection() {
             <div key={msg.id} className={`flex gap-3 ${msg.role === 'user' ? 'justify-end' : 'justify-start'} animate-slide-up`}>
               {msg.role === 'assistant' && (
                 <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 ${msg.isError ? 'bg-destructive/10' : 'bg-primary/10'}`}>
-                  {msg.isError ? <FiAlertCircle className="h-4 w-4 text-destructive" /> : <FiCpu className="h-4 w-4 text-primary" />}
+                  {msg.isError ? <AlertCircle className="h-4 w-4 text-destructive" /> : <Cpu className="h-4 w-4 text-primary" />}
                 </div>
               )}
 
@@ -249,7 +250,7 @@ export default function AskAssistantSection() {
                 {/* Message meta */}
                 <div className={`flex items-center gap-2 px-1 ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
                   <span className="text-[10px] text-muted-foreground flex items-center gap-1">
-                    <FiClock className="h-2.5 w-2.5" />
+                    <Clock className="h-2.5 w-2.5" />
                     {formatTime(msg.timestamp)}
                   </span>
 
@@ -261,7 +262,7 @@ export default function AskAssistantSection() {
                         title="Copy answer"
                         aria-label="Copy answer"
                       >
-                        {msg.copied ? <FiCheck className="h-3 w-3 text-accent" /> : <FiCopy className="h-3 w-3" />}
+                        {msg.copied ? <Check className="h-3 w-3 text-accent" /> : <Copy className="h-3 w-3" />}
                       </button>
                       <button
                         onClick={() => handleFeedback(msg.id, 'up')}
@@ -269,7 +270,7 @@ export default function AskAssistantSection() {
                         title="Helpful"
                         aria-label="Mark as helpful"
                       >
-                        <FiThumbsUp className="h-3 w-3" />
+                        <ThumbsUp className="h-3 w-3" />
                       </button>
                       <button
                         onClick={() => handleFeedback(msg.id, 'down')}
@@ -277,7 +278,7 @@ export default function AskAssistantSection() {
                         title="Not helpful"
                         aria-label="Mark as not helpful"
                       >
-                        <FiThumbsDown className="h-3 w-3" />
+                        <ThumbsDown className="h-3 w-3" />
                       </button>
                     </>
                   )}
@@ -302,7 +303,7 @@ export default function AskAssistantSection() {
 
               {msg.role === 'user' && (
                 <div className="w-8 h-8 rounded-lg bg-secondary flex items-center justify-center shrink-0">
-                  <FiUser className="h-4 w-4 text-muted-foreground" />
+                  <User className="h-4 w-4 text-muted-foreground" />
                 </div>
               )}
             </div>
@@ -318,7 +319,7 @@ export default function AskAssistantSection() {
             className="absolute bottom-20 right-4 w-8 h-8 rounded-full bg-primary/90 text-primary-foreground flex items-center justify-center shadow-lg hover:bg-primary transition-all z-10"
             aria-label="Scroll to bottom"
           >
-            <FiChevronDown className="h-4 w-4" />
+            <ChevronDown className="h-4 w-4" />
           </button>
         )}
 
@@ -340,7 +341,7 @@ export default function AskAssistantSection() {
                 title={isListening ? 'Stop listening' : 'Voice input'}
                 aria-label={isListening ? 'Stop voice input' : 'Start voice input'}
               >
-                {isListening ? <FiMicOff className="h-4 w-4" /> : <FiMic className="h-4 w-4" />}
+                {isListening ? <MicOff className="h-4 w-4" /> : <Mic className="h-4 w-4" />}
               </button>
             )}
             <input
@@ -357,7 +358,7 @@ export default function AskAssistantSection() {
               className="shrink-0 w-10 h-10 rounded-xl bg-primary text-primary-foreground flex items-center justify-center hover:opacity-90 transition-all disabled:opacity-50"
               aria-label="Send message"
             >
-              <FiSend className="h-4 w-4" />
+              <Send className="h-4 w-4" />
             </button>
           </form>
         </div>

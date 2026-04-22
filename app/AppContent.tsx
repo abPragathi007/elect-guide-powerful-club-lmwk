@@ -2,10 +2,10 @@
 
 import React, { useState, useEffect, useCallback } from 'react'
 import {
-  FiHome, FiMap, FiBarChart2, FiZap, FiCheckSquare,
-  FiMessageSquare, FiList, FiClock, FiBookOpen,
-  FiMenu, FiX, FiMoon, FiSun, FiCpu, FiActivity,
-} from 'react-icons/fi'
+  Home, Map, BarChart2, Zap, CheckSquare,
+  MessageSquare, List, Clock, BookOpen,
+  Menu, X, Moon, Sun, Cpu, Activity,
+} from 'lucide-react'
 
 import HomeSection from './sections/HomeSection'
 import ElectoralMapSection from './sections/ElectoralMapSection'
@@ -18,15 +18,15 @@ import TimelineSection from './sections/TimelineSection'
 import GlossarySection from './sections/GlossarySection'
 
 const TABS = [
-  { id: 'home', label: 'Home', icon: FiHome },
-  { id: 'map', label: 'Map', icon: FiMap },
-  { id: 'dashboard', label: 'Dashboard', icon: FiBarChart2 },
-  { id: 'quiz', label: 'Quiz', icon: FiZap },
-  { id: 'journey', label: 'My Journey', icon: FiCheckSquare },
-  { id: 'ask', label: 'Assistant', icon: FiMessageSquare },
-  { id: 'how', label: 'How It Works', icon: FiList },
-  { id: 'timeline', label: 'Timeline', icon: FiClock },
-  { id: 'glossary', label: 'Glossary', icon: FiBookOpen },
+  { id: 'home', label: 'Home', icon: Home },
+  { id: 'map', label: 'Map', icon: Map },
+  { id: 'dashboard', label: 'Dashboard', icon: BarChart2 },
+  { id: 'quiz', label: 'Quiz', icon: Zap },
+  { id: 'journey', label: 'My Journey', icon: CheckSquare },
+  { id: 'ask', label: 'Assistant', icon: MessageSquare },
+  { id: 'how', label: 'How It Works', icon: List },
+  { id: 'timeline', label: 'Timeline', icon: Clock },
+  { id: 'glossary', label: 'Glossary', icon: BookOpen },
 ] as const
 
 type TabId = (typeof TABS)[number]['id']
@@ -132,7 +132,7 @@ export default function AppContent() {
           <div className="max-w-7xl mx-auto px-4 h-14 flex items-center justify-between">
             <div className="flex items-center gap-2">
               <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
-                <FiActivity className="h-4 w-4 text-primary" />
+                <Activity className="h-4 w-4 text-primary" />
               </div>
               <h1 className="text-sm font-semibold text-foreground tracking-tight hidden sm:block">
                 Election Education
@@ -165,9 +165,9 @@ export default function AppContent() {
                 aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
               >
                 {isDark ? (
-                  <FiSun className="h-4 w-4 text-amber-400" />
+                  <Sun className="h-4 w-4 text-amber-400" />
                 ) : (
-                  <FiMoon className="h-4 w-4 text-muted-foreground" />
+                  <Moon className="h-4 w-4 text-muted-foreground" />
                 )}
               </button>
               <button
@@ -175,7 +175,7 @@ export default function AppContent() {
                 className="lg:hidden p-2 rounded-lg hover:bg-muted/50 transition-colors"
                 aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
               >
-                {mobileMenuOpen ? <FiX className="h-5 w-5" /> : <FiMenu className="h-5 w-5" />}
+                {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
               </button>
             </div>
           </div>
@@ -230,7 +230,7 @@ export default function AppContent() {
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
-                  <FiCpu className="h-4 w-4 text-primary" />
+                  <Cpu className="h-4 w-4 text-primary" />
                 </div>
                 <div>
                   <div className="flex items-center gap-2">

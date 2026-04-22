@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef, useMemo } from 'react'
 import { VOTER_TURNOUT, STATES } from '@/app/data/stateData'
-import { FiClock, FiBarChart2, FiPieChart, FiCalendar, FiSearch, FiArrowUp, FiArrowDown } from 'react-icons/fi'
+import { Clock, BarChart2, PieChart, Calendar, Search, ArrowUp, ArrowDown } from 'lucide-react'
 
 // Next major election date
 const NEXT_ELECTION = new Date('2026-11-03T00:00:00')
@@ -38,7 +38,7 @@ function CountdownTimer() {
     <div className="glass rounded-2xl p-6">
       <div className="flex items-center gap-2 mb-4">
         <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
-          <FiClock className="h-4 w-4 text-primary" />
+          <Clock className="h-4 w-4 text-primary" />
         </div>
         <div>
           <h3 className="text-sm font-semibold text-foreground">Next Major Election</h3>
@@ -84,7 +84,7 @@ function TurnoutChart() {
     <div ref={ref} className="glass rounded-2xl p-6">
       <div className="flex items-center gap-2 mb-4">
         <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
-          <FiBarChart2 className="h-4 w-4 text-primary" />
+          <BarChart2 className="h-4 w-4 text-primary" />
         </div>
         <div>
           <h3 className="text-sm font-semibold text-foreground">Voter Turnout by Year</h3>
@@ -137,7 +137,7 @@ function ElectoralDonut() {
     <div className="glass rounded-2xl p-6">
       <div className="flex items-center gap-2 mb-4">
         <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
-          <FiPieChart className="h-4 w-4 text-primary" />
+          <PieChart className="h-4 w-4 text-primary" />
         </div>
         <div>
           <h3 className="text-sm font-semibold text-foreground">Electoral Vote Distribution</h3>
@@ -231,13 +231,13 @@ function DeadlineTable() {
     else { setSortField(field); setSortAsc(true) }
   }
 
-  const SortIcon = sortAsc ? FiArrowUp : FiArrowDown
+  const SortIcon = sortAsc ? ArrowUp : ArrowDown
 
   return (
     <div className="glass rounded-2xl p-6">
       <div className="flex items-center gap-2 mb-4">
         <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
-          <FiCalendar className="h-4 w-4 text-primary" />
+          <Calendar className="h-4 w-4 text-primary" />
         </div>
         <div className="flex-1">
           <h3 className="text-sm font-semibold text-foreground">Registration Deadlines by State</h3>
@@ -246,7 +246,7 @@ function DeadlineTable() {
       </div>
 
       <div className="relative mb-3">
-        <FiSearch className="absolute left-3 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-muted-foreground" />
+        <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-muted-foreground" />
         <input
           value={search}
           onChange={e => setSearch(e.target.value)}
